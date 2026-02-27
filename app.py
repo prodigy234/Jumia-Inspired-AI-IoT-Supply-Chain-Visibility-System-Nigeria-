@@ -33,6 +33,6 @@ st.markdown("""
 <p style='text-align:center;'>Real-Time Delay Risk Monitoring Powered by AI + IoT</p>
 """, unsafe_allow_html=True)
 
-st.image("assets/logo.png", width=200)
+st.image("assets/ihenacho_image.jpeg", width=200)
 
 st.success("Navigate using the sidebar to explore features.")
