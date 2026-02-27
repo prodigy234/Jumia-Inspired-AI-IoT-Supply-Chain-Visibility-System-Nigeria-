@@ -2,11 +2,8 @@ import os
 import joblib
 import pandas as pd
 
-MODEL_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(__file__)),
-    "models",
-    "delay_model.pkl"
-)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "delay_model.pkl")
 
 model = joblib.load(MODEL_PATH)
 
@@ -30,13 +27,5 @@ def predict_delay(static_features, iot_features):
     risk = model.predict_proba(df)[0][1]
     return risk
 
-# import joblib
-# import pandas as pd
-
-# model = joblib.load("models/delay_model.pkl")
-
-# def predict_delay(static_features, iot_features):
-#     data = {**static_features, **iot_features}
-#     df = pd.DataFrame([data])
-#     risk = model.predict_proba(df)[0][1]
-#     return risk
+def get_feature_importance():
+    return dict(zip(FEATURE_ORDER, model.feature_importances_))

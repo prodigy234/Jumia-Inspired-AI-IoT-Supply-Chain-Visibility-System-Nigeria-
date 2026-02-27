@@ -7,4 +7,5 @@ seaborn
 joblib
 plotly
 openpyxl
-os
+streamlit-option-menu
+watchdog
